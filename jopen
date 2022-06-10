@@ -34,7 +34,7 @@ check_files(){
 
 open_files(){
 	for f in "$@"; do
-		echo "openning: $f"
+		echo "opening: $f"
 		open "$f" &> /dev/null &
 	done
 }
