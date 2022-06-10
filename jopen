@@ -24,8 +24,7 @@
 
 
 check_files(){
-	for f in $@; do 
-		echo "file $f"
+	for f in "$@"; do 
 		if [[ ! -e  $f ]]; then
 			echo "$f: No such file or directory"
 			exit -1
@@ -34,7 +33,7 @@ check_files(){
 }
 
 open_files(){
-	for f in $@; do
+	for f in "$@"; do
 		echo "openning: $f"
 		open "$f" &> /dev/null &
 	done
@@ -43,6 +42,6 @@ open_files(){
 if [ $# -eq 0 ]; then
 	open . &> /dev/null &
 else
-	check_files $@
-	open_files $@
+	check_files "$@"
+	open_files "$@"
 fi
